@@ -20,7 +20,7 @@ def create_pdf(filename, bingo_card):
         ('BACKGROUND', (0, 0), (-1, 0), colors.lightblue),
         ('TEXTCOLOR', (0, 0), (-1, -1), colors.black),
         ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-        ('FONTNAME', (0, 0), (-1, -1), 'Calibri-Bold'),
+        ('FONTNAME', (0, 0), (-1, -1), 'Calibri'),
         ('FONTSIZE', (0, 0), (-1, -1), 20),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 12),
         ('BACKGROUND', (0, 1), (-1, -1), colors.white),
