@@ -11,23 +11,26 @@ def generate_bingo_card(words):
 
 # Function to create a PDF of the bingo card
 def create_pdf(filename, bingo_card):
+    # Define page size and orientation (landscape)
     pdf = SimpleDocTemplate(filename, pagesize=landscape(letter))
+
+    # Create table data for the Bingo card
     table_data = [bingo_card[i:i+4] for i in range(0, len(bingo_card), 4)]
     table = Table(table_data)
 
     # Styling the table
     style = TableStyle([
-        ('BACKGROUND', (0, 0), (-1, 0), colors.lightblue),
-        ('TEXTCOLOR', (0, 0), (-1, -1), colors.black),
-        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-        ('FONTNAME', (0, 0), (-1, -1), 'Calibri'),
-        ('FONTSIZE', (0, 0), (-1, -1), 20),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 12),
-        ('BACKGROUND', (0, 1), (-1, -1), colors.white),
-        ('GRID', (0, 0), (-1, -1), 2, colors.black),
+        ('BACKGROUND', (0, 0), (-1, -1), colors.lightblue),  # Background color for entire table
+        ('TEXTCOLOR', (0, 0), (-1, -1), colors.black),      # Text color for entire table
+        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),              # Center align content
+        ('FONTNAME', (0, 0), (-1, -1), 'Calibri'),          # Font name (Calibri)
+        ('FONTSIZE', (0, 0), (-1, -1), 24),                 # Font size (24)
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 12),            # Bottom padding (12)
+        ('GRID', (0, 0), (-1, -1), 2, colors.black),        # Grid lines (2 pixels thick)
     ])
     table.setStyle(style)
 
+    # Build PDF document with the styled table
     elements = [table]
     pdf.build(elements)
 
@@ -42,10 +45,6 @@ st.title("Bingo Card Generator")
 # Generate bingo card
 bingo_card = generate_bingo_card(words)
 bingo_card_matrix = [bingo_card[i:i+4] for i in range(0, len(bingo_card), 4)]
-
-# # Display bingo card
-# st.write("Your Bingo Card:")
-# st.table(bingo_card_matrix)
 
 # Button to download the PDF
 if st.button("Download Bingo Card as PDF"):
