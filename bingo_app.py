@@ -25,7 +25,7 @@ def create_pdf(filename, bingo_card):
         ('ALIGN', (0, 0), (-1, -1), 'CENTER'),              # Center align content
         ('FONTNAME', (0, 0), (-1, -1), 'Helvetica'),       
         ('FONTSIZE', (0, 0), (-1, -1), 28),                
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 20),            # Bottom padding (12)
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 40),            # Bottom padding (12)
         ('GRID', (0, 0), (-1, -1), 1, colors.black),       
     ])
     table.setStyle(style)
@@ -46,9 +46,7 @@ st.title("Bingo Card Generator")
 bingo_card = generate_bingo_card(words)
 bingo_card_matrix = [bingo_card[i:i+4] for i in range(0, len(bingo_card), 4)]
 
-# Button to download the PDF
-if st.button("Download Bingo Card as PDF"):
-    filename = "Bingo_Card_CSLS_2024.pdf"
-    create_pdf(filename, bingo_card)
-    with open(filename, "rb") as pdf_file:
-        st.download_button(label="Download PDF", data=pdf_file, file_name=filename, mime="application/pdf")
+filename = "Bingo_Card_CSLS_2024.pdf"
+create_pdf(filename, bingo_card)
+with open(filename, "rb") as pdf_file:
+    st.download_button(label="Download PDF", data=pdf_file, file_name=filename, mime="application/pdf")
