@@ -1,3 +1,4 @@
 streamlit==1.18.1
 pandas==1.5.3
 reportlab==3.6.12
+numpy==1.21.6
