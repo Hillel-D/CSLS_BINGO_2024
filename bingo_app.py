@@ -23,10 +23,10 @@ def create_pdf(filename, bingo_card):
         ('BACKGROUND', (0, 0), (-1, -1), colors.lightblue),  # Background color for entire table
         ('TEXTCOLOR', (0, 0), (-1, -1), colors.black),      # Text color for entire table
         ('ALIGN', (0, 0), (-1, -1), 'CENTER'),              # Center align content
-        ('FONTNAME', (0, 0), (-1, -1), 'Helvetica'),          # Font name (Calibri)
-        ('FONTSIZE', (0, 0), (-1, -1), 24),                 # Font size (24)
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 12),            # Bottom padding (12)
-        ('GRID', (0, 0), (-1, -1), 2, colors.black),        # Grid lines (2 pixels thick)
+        ('FONTNAME', (0, 0), (-1, -1), 'Helvetica'),       
+        ('FONTSIZE', (0, 0), (-1, -1), 28),                
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 20),            # Bottom padding (12)
+        ('GRID', (0, 0), (-1, -1), 1, colors.black),       
     ])
     table.setStyle(style)
 
