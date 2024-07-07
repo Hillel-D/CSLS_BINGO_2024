@@ -12,7 +12,7 @@ def generate_bingo_card(words):
 # Function to create a PDF of the bingo card
 def create_pdf(filename, bingo_card):
     # Define page size and orientation (landscape)
-    pdf = SimpleDocTemplate(filename, pagesize=landscape(letter))
+    pdf = SimpleDocTemplate(filename, pagesize=landscape(A4))
 
     # Create table data for the Bingo card
     table_data = [bingo_card[i:i+4] for i in range(0, len(bingo_card), 4)]
