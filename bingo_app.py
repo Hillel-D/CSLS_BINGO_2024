@@ -20,7 +20,7 @@ def create_pdf(filename, bingo_card):
         ('BACKGROUND', (0, 0), (-1, 0), colors.lightblue),
         ('TEXTCOLOR', (0, 0), (-1, -1), colors.black),
         ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-        ('FONTNAME', (0, 0), (-1, -1), 'Helvetica-Bold'),
+        ('FONTNAME', (0, 0), (-1, -1), 'Calibri-Bold'),
         ('FONTSIZE', (0, 0), (-1, -1), 20),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 12),
         ('BACKGROUND', (0, 1), (-1, -1), colors.white),
@@ -43,9 +43,9 @@ st.title("Bingo Card Generator")
 bingo_card = generate_bingo_card(words)
 bingo_card_matrix = [bingo_card[i:i+4] for i in range(0, len(bingo_card), 4)]
 
-# Display bingo card
-st.write("Your Bingo Card:")
-st.table(bingo_card_matrix)
+# # Display bingo card
+# st.write("Your Bingo Card:")
+# st.table(bingo_card_matrix)
 
 # Button to download the PDF
 if st.button("Download Bingo Card as PDF"):
