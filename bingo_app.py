@@ -3,7 +3,8 @@ import pandas as pd
 import random
 from reportlab.lib.pagesizes import landscape, letter
 from reportlab.lib import colors
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
 
 # Function to generate a 4x4 bingo card
 def generate_bingo_card(words):
@@ -11,27 +12,30 @@ def generate_bingo_card(words):
 
 # Function to create a PDF of the bingo card
 def create_pdf(filename, bingo_card):
-    # Define page size and orientation (landscape)
-    pdf = SimpleDocTemplate(filename, pagesize=landscape(letter), title="CSLS_2024")
-
-    # Create table data for the Bingo card
+    pdf = SimpleDocTemplate(filename, pagesize=landscape(letter))
     table_data = [bingo_card[i:i+4] for i in range(0, len(bingo_card), 4)]
     table = Table(table_data)
-
+    
     # Styling the table
     style = TableStyle([
-        ('BACKGROUND', (0, 0), (-1, -1), colors.lightblue),  # Background color for entire table
-        ('TEXTCOLOR', (0, 0), (-1, -1), colors.black),      # Text color for entire table
-        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),              # Center align content
-        ('FONTNAME', (0, 0), (-1, -1), 'Helvetica'),       
-        ('FONTSIZE', (0, 0), (-1, -1), 28),                
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 40),            # Bottom padding (12)
-        ('GRID', (0, 0), (-1, -1), 1, colors.black),       
+        ('BACKGROUND', (0, 0), (-1, -1), colors.lightblue),
+        ('TEXTCOLOR', (0, 0), (-1, -1), colors.black),
+        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+        ('FONTNAME', (0, 0), (-1, -1), 'Helvetica-Bold'),  # Using Helvetica-Bold for simplicity
+        ('FONTSIZE', (0, 0), (-1, -1), 24),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 12),
+        ('GRID', (0, 0), (-1, -1), 2, colors.black),
     ])
     table.setStyle(style)
-
-    # Build PDF document with the styled table
-    elements = [table]
+    
+    # Define styles for the title
+    styles = getSampleStyleSheet()
+    title_style = styles['Title']
+    title = Paragraph("CSLS 2024", title_style)
+    
+    # Centering the table with spacers
+    elements = [title, Spacer(1, 20), table, Spacer(1, 20)]
+    
     pdf.build(elements)
 
 # Read words from CSV
@@ -46,7 +50,15 @@ st.title("Bingo Card Generator")
 bingo_card = generate_bingo_card(words)
 bingo_card_matrix = [bingo_card[i:i+4] for i in range(0, len(bingo_card), 4)]
 
-filename = "Bingo_Card_CSLS_2024.pdf"
-create_pdf(filename, bingo_card)
-with open(filename, "rb") as pdf_file:
-    st.download_button(label="Download PDF", data=pdf_file, file_name=filename, mime="application/pdf")
+# Display Bingo card matrix (optional)
+st.write("Your Bingo Card:")
+st.table(bingo_card_matrix)
+
+# Center the button using Streamlit's built-in methods
+st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
+if st.button("Download Bingo Card as PDF"):
+    filename = "Bingo_Card_CSLS_2024.pdf"
+    create_pdf(filename, bingo_card)
+    with open(filename, "rb") as pdf_file:
+        st.download_button(label="Download PDF", data=pdf_file, file_name=filename, mime="application/pdf")
+st.markdown("</div>", unsafe_allow_html=True)
