@@ -48,7 +48,7 @@ words = words_df['word'].tolist()
 
 # Streamlit app
 st.set_page_config(page_title="CSLS 2024- Bingo Card Generator", layout="centered")
-st.title("Bingo Card Generator")
+st.title("CSLS 2024- Bingo Card Generator")
 
 # Option to regenerate the bingo card
 if st.button("Generate New Bingo Card"):
