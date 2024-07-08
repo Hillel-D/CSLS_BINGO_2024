@@ -25,7 +25,7 @@ def create_pdf(filename, bingo_card, bg_color):
         ('TEXTCOLOR', (0, 0), (-1, -1), colors.black),      # Text color for entire table
         ('ALIGN', (0, 0), (-1, -1), 'CENTER'),              # Center align content
         ('FONTNAME', (0, 0), (-1, -1), 'Helvetica-Bold'),   # Font name (Helvetica-Bold)
-        ('FONTSIZE', (0, 0), (-1, -1), 24),                 # Font size (24)
+        ('FONTSIZE', (0, 0), (-1, -1), 20),                 # Font size (24)
         ('BOTTOMPADDING', (0, 0), (-1, -1), 40),            # Bottom padding (40)
         ('GRID', (0, 0), (-1, -1), 2, colors.black),        # Grid lines (2 pixels thick)
     ])
