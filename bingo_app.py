@@ -26,7 +26,7 @@ def create_pdf(filename, bingo_card):
         ('ALIGN', (0, 0), (-1, -1), 'CENTER'),              # Center align content
         ('FONTNAME', (0, 0), (-1, -1), 'Helvetica-Bold'),   # Font name (Calibri)
         ('FONTSIZE', (0, 0), (-1, -1), 24),                 # Font size (24)
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 12),            # Bottom padding (12)
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 32),            # Bottom padding (12)
         ('GRID', (0, 0), (-1, -1), 2, colors.black),        # Grid lines (2 pixels thick)
     ])
     table.setStyle(style)
@@ -67,9 +67,8 @@ st.markdown(
     """, unsafe_allow_html=True
 )
 
-# Button to download the PDF
-if st.button("Download Bingo Card as PDF"):
-    filename = "Bingo_Card_CSLS_2024.pdf"
-    create_pdf(filename, bingo_card)
-    with open(filename, "rb") as pdf_file:
-        st.download_button(label="Download PDF", data=pdf_file, file_name=filename, mime="application/pdf")
+
+filename = "Bingo_Card_CSLS_2024.pdf"
+create_pdf(filename, bingo_card)
+with open(filename, "rb") as pdf_file:
+    st.download_button(label="Download PDF", data=pdf_file, file_name=filename, mime="application/pdf")
