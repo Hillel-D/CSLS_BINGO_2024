@@ -8,7 +8,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 
 # Function to generate a 4x4 bingo card
 def generate_bingo_card(words):
-   return random.sample(words, 16)
+  return random.sample(words, 16)
 
 # Function to create a PDF of the bingo card
 def create_pdf(filename, bingo_card):
