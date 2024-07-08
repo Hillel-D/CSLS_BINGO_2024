@@ -17,20 +17,19 @@ CNN
 RNN
 GNN
 ANN
-Auto-encoder
+Autoencoder
 Attention
 ROC
 AUC
 SHAP
 XGBoost
 Bonferroni
-Feature selection
+Feature
 Separable
 Network
 Dynamics
 Information
 Entropy
-Hindrance
 Control
 Mutation
 Circuit
@@ -39,52 +38,39 @@ NNLS
 NMF
 Nanopore
 Biobank
-GWAS/PWAS/EWAS
-QTL/eQTL/meQTL
+-WAS
+-QTL
 Linkage
 Entropy
 AlphaFold
 ChatGPT
-Prompt
 LLM
 3-UTR
 Codon
 Polycomb
 CTCF
-DNMT
 Haematopoiesis
 Aging
 Gray matter
-Hinge
 Scatterplot
 H3K4me3
 H3K27ac
 Methylation
 Promoter
-Ultima
 Heatmap
-NCD
 Obesity
 Metabolic
-Top down
-Bottom up
-Random forest
+Random-forest
 PBMC
-Bias variance
 Regularization
-Foundation model
-Log Loss
-Checkpoint Inhibitor
+Loss
 Immunotherapy
 Oncogene
-Multi-omics
+Multiomics
 Batch effect
-Gradient descent
-Krebs cycle
 SNP
 imputation
-Lasso
-scRNA-seq/snRNA-seq
-Mass Spectrometer
-Atomic Force Microscopy
+Regression
+scRNA
+Mass-Spec
 stoichiometry
