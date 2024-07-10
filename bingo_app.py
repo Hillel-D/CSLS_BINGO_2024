@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import random
+import re
 from reportlab.lib.pagesizes import landscape, letter
 from reportlab.lib import colors
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
@@ -45,7 +46,7 @@ def create_pdf(filename, bingo_card, bg_color):
 # Read words from CSV
 words_df = pd.read_csv("word_list.csv")
 words = words_df['word'].tolist()
-words = [word.replace("-\n", "") for word in words.copy()]
+words = [re.sub(r"-\\n", "", word) for word in words]
 
 
 # Streamlit app
