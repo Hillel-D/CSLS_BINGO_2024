@@ -45,6 +45,7 @@ def create_pdf(filename, bingo_card, bg_color):
 # Read words from CSV
 words_df = pd.read_csv("word_list.csv")
 words = words_df['word'].tolist()
+words = [word.replace("-\n","") for word in words]
 
 # Streamlit app
 st.set_page_config(page_title="CSLS 2024: Bingo Card Generator", layout="centered")
