@@ -33,12 +33,12 @@ Entropy
 Control
 Mutation
 Circuit
-Kolmo-\ngorov-\nSmirnov
+Kolmo-\ngorov-\n Smirnov
 NNLS
 NMF
 Nanopore
 Biobank
-WAS
+*WAS
 QTL
 Linkage
 Entropy
@@ -60,7 +60,7 @@ Promoter
 Heatmap
 Obesity
 Metabolic
-Random-\nforest
+Random -\n forest
 PBMC
 Regulari-\nzation
 Loss
@@ -71,6 +71,6 @@ Batch-\neffect
 SNP
 Impu-\ntation
 Regression
-Single-\ncell\nRNA
+Single-\n cell\n RNA
 Mass-Spec
 Stoichio-\nmetry
