@@ -47,7 +47,7 @@ def create_pdf(filename, bingo_card, bg_color):
 words_df = pd.read_csv("word_list.csv")
 words = words_df['word'].tolist()
 words = [re.sub(r"-\\n", "", word) for word in words]
-words = [re.sub(r"\n", "", word) for word in words]
+words = [re.sub(r"\\n", "", word) for word in words]
 
 
 # Streamlit app
