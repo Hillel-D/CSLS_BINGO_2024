@@ -1,28 +1,28 @@
 word
 ChIP-seq
 cell-free DNA
-Histone\modification
+Histone modification
 KSHV
-ROC\curve
+ROC curve
 RNA-seq
 Upregulation
 Downregulation
 Cytokine
 AlphaFold
 PLDDT
-Protein\Complex
-Disordered\Regions
+Protein Complex
+Disordered Regions
 TMB
-User\Prompt
-System\Prompt
-CRISPR-\Cas9
+User Prompt
+System Prompt
+CRISPR-Cas9
 Fibrillarin
 GFP
 MZT
-Ribo\-meth\-seq
+Ribo-meth-seq
 snoRNA
 DNA Language Model
-Mutational\Signature
+Mutational Signature
 Representation
 Embedding
 SBS96
@@ -31,9 +31,9 @@ qMRI
 Diffusion MRI
 White Matter
 Axons
-White\Matter\Tracts
+White Matter Tracts
 Pathways
-spatial\transcriptomics
-single-cell\RNA\sequencing
+spatial transcriptomics
+single-cell RNA sequencing
 pseudotime
 Fibrosis

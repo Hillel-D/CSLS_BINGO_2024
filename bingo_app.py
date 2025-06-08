@@ -6,35 +6,64 @@ from reportlab.lib.pagesizes import landscape, letter
 from reportlab.lib import colors
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.enums import TA_CENTER
+
 
 # Function to generate a 4x4 bingo card
 def generate_bingo_card(words):
     return random.sample(words, 16)
+
 
 # Function to create a PDF of the bingo card
 def create_pdf(filename, bingo_card, bg_color):
     # Define page size and orientation (landscape)
     pdf = SimpleDocTemplate(filename, pagesize=landscape(letter))
 
+    # Calculate optimal font size based on word length
+    max_word_length = max(len(word) for word in bingo_card)
+
+    # Adjust font size dynamically
+    if max_word_length > 20:
+        font_size = 12
+    elif max_word_length > 15:
+        font_size = 16
+    else:
+        font_size = 20
+
     # Create table data for the Bingo card
-    table_data = [bingo_card[i:i+4] for i in range(0, len(bingo_card), 4)]
+    table_data = [[Paragraph(word, getSampleStyleSheet()['Normal']) for word in bingo_card[i:i + 4]] for i in
+                  range(0, len(bingo_card), 4)]
+
+    # Set text alignment for paragraphs
+    for row in table_data:
+        for cell in row:
+            cell.style.alignment = TA_CENTER
+            cell.style.fontName = 'Helvetica-Bold'
+            cell.style.fontSize = font_size
+            cell.style.leading = font_size * 1.2  # Line spacing
+
     table = Table(table_data)
 
     # Styling the table
     style = TableStyle([
         ('BACKGROUND', (0, 0), (-1, -1), bg_color),  # Background color for entire table
-        ('TEXTCOLOR', (0, 0), (-1, -1), colors.black),      # Text color for entire table
-        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),              # Center align content
-        ('FONTNAME', (0, 0), (-1, -1), 'Helvetica-Bold'),   # Font name (Helvetica-Bold)
-        ('FONTSIZE', (0, 0), (-1, -1), 20),                 # Font size (24)
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 40),            # Bottom padding (40)
-        ('GRID', (0, 0), (-1, -1), 2, colors.black),        # Grid lines (2 pixels thick)
+        ('TEXTCOLOR', (0, 0), (-1, -1), colors.black),  # Text color for entire table
+        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),  # Center align content
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),  # Vertically align content
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 10),  # Bottom padding (adjust as needed)
+        ('TOPPADDING', (0, 0), (-1, -1), 10),  # Top padding (adjust as needed)
+        ('GRID', (0, 0), (-1, -1), 2, colors.black),  # Grid lines (2 pixels thick)
     ])
     table.setStyle(style)
+
+    # Calculate column width dynamically to ensure text fits
+    col_width = (landscape(letter)[0] - 2 * 72) / 4  # Total width - margins / 4 columns (assuming 1 inch margin)
+    table._argW = [col_width] * 4  # Set all column widths to be equal
 
     # Title
     styles = getSampleStyleSheet()
     title = Paragraph("<font size=40>CSLS 2024</font>", styles['Title'])
+    title.style.alignment = TA_CENTER
 
     # Add spacing
     space = Spacer(1, 48)
@@ -43,12 +72,12 @@ def create_pdf(filename, bingo_card, bg_color):
     elements = [title, space, table]
     pdf.build(elements)
 
+
 # Read words from CSV
 words_df = pd.read_csv("word_list.csv")
 words = words_df['word'].tolist()
 words = [re.sub(r"-\\n", "", word) for word in words]
 words = [re.sub(r"\\n", "", word) for word in words]
-
 
 # Streamlit app
 st.set_page_config(page_title="CSLS 2024: Bingo Card Generator", layout="centered")
@@ -60,7 +89,7 @@ if st.button("Generate New Bingo Card"):
 else:
     bingo_card = generate_bingo_card(words)
 
-bingo_card_matrix = [bingo_card[i:i+4] for i in range(0, len(bingo_card), 4)]
+bingo_card_matrix = [bingo_card[i:i + 4] for i in range(0, len(bingo_card), 4)]
 
 # Display Bingo card
 st.write("Your Bingo Card:")
