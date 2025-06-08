@@ -1,76 +1,39 @@
 word
-Cluster-\ning
-K-\nmeans
-PCA
-tSNE
-UMAP
-Norm
-Lapla\ncian
-Spectral
-Eigen
-Logistic
-Cell-\ncycle
-MCMC
-HMM
-DNN
-CNN
-RNN
-GNN
-ANN
-Auto-\nencoder
-Attention
-ROC
-AUC
-SHAP
-XGBoost
-Bonfe-\nrroni
-Feature
-Separable
-Network
-Dynamics
-Infor-\nmation
-Entropy
-Control
-Mutation
-Circuit
-Kolmo-\ngorov-\n Smirnov
-NNLS
-NMF
-Nanopore
-Biobank
-*WAS
-QTL
-Linkage
-Entropy
+ChIP-seq
+cell-free DNA
+Histone modification
+KSHV (Kaposi's Sarcoma-Associated Herpesvirus)
+ROC curve (Receiver Operating Characteristic)
+RNA-seq
+Upregulation
+Downregulation
+Cytokine
 AlphaFold
-ChatGPT
-LLM
-3-UTR
-Codon
-Polycomb
-CTCF
-Haemato-\npoiesis
-Aging
-Gray-\nmatter
-Scatter-\nplot
-H3K4me3
-H3K27ac
-Methyl-\nation
-Promoter
-Heatmap
-Obesity
-Metabolic
-Random -\n forest
-PBMC
-Regulari-\nzation
-Loss
-Immuno-\ntherapy
-Oncogene
-Multi-\nomics
-Batch-\neffect
-SNP
-Impu-\ntation
-Regression
-Single-\n cell\n RNA
-Mass-Spec
-Stoichio-\nmetry
+PLDDT (Predicted Local Distance Difference Test)
+Protein Complex
+Disordered Regions
+TMB (Tumor Mutational Burden)
+User Prompt
+System Prompt
+CRISPR-Cas9
+Fibrillarin
+GFP (Green Fluorescent Protein)
+MZT (Maternal-to-Zygotic Transition)
+Ribo-meth-seq
+snoRNA (Small Nucleolar RNA)
+DNA Language Model
+Mutational Signature
+Representation
+Embedding
+SBS96 (Single Base Substitution 96)
+MRI
+qMRI (Quantitative MRI)
+Diffusion MRI
+White Matter
+Axons
+White Matter Tracts
+Pathways
+spatial transcriptomics
+single-cell RNA sequencing
+pseudotime
+Fibrosis
