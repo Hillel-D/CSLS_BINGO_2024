@@ -120,7 +120,7 @@ st.markdown(
     """, unsafe_allow_html=True
 )
 
-filename = "Bingo_Card_CSLS_2024.pdf"
+filename = "Bingo_Card_CSLS_2025.pdf"
 create_pdf(filename, bingo_card, bg_color)
 with open(filename, "rb") as pdf_file:
     st.download_button(label="Download PDF", data=pdf_file, file_name=filename, mime="application/pdf")
