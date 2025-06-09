@@ -81,7 +81,7 @@ words = [re.sub(r"\\n", "", word) for word in words]
 
 # Streamlit app
 st.set_page_config(page_title="CSLS 2024: Bingo Card Generator", layout="centered")
-st.title("CSLS 2024: Bingo Card Generator")
+st.title("CSLS 2025: Bingo Card Generator")
 
 # Option to regenerate the bingo card
 if st.button("Generate New Bingo Card"):
